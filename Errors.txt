@@ -1,0 +1,25 @@
+╷
+│ Error: Unsupported block type
+│ 
+│   on modules/ec2/ec2.tf line 25, in resource "aws_instance" "ec2":
+│   25:     primary_network_interface {
+│ 
+│ Blocks of type "primary_network_interface" are not expected here.
+╵
+
+
+Terraform throws this error when we try to access an map of objects but in our case we tried to use it 
+as a list.
+
+Values Function - values() turns the map into a list
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+╷
+│ Error: Incorrect attribute value type
+│ 
+│   on modules/ec2/ec2.tf line 18, in resource "aws_network_interface" "ec2_eni":
+│   18:     subnet_id = var.subnet_id
+│     ├────────────────
+│     │ var.subnet_id is tuple with 1 element
+│ 
+│ Inappropriate value for attribute "subnet_id": string required, but have tuple.

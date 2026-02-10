@@ -1,0 +1,6 @@
+.terraform
+.terraform/*
+.venv
+.venv/*
+.terraform.lock.hcl
+provider.tf
